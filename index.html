@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<title>hello-wasm example</title>
+<script type="module">
+import init, { greet ,ff_parse,fff_parse} from "./hello-wasm/pkg/hello_wasm.js";
+init().then(() => {
+    greet("WebAssembly");
+});
+var ul = document.createElement('ul');
+ul.setAttribute('id','proList');
+
+
+
+document.getElementById('renderList').appendChild(ul);
+function myFunction() {
+
+    var input =document.getElementById('name').value
+    var res=fff_parse(input);
+    ff_parse(input);
+
+
+
+
+        var li = document.createElement('li');
+        li.setAttribute('class','item');
+
+        ul.appendChild(li);
+
+        li.innerHTML=li.innerHTML + input +"---->"+res;
+
+}
+document.getElementById("sub").addEventListener("click", myFunction);
+
+
+</script>
+</head>
+<body>
+
+
+<div class="form-example">
+<label for="name">Enter your formula</label>
+<input type="text" name="name" id="name" required>
+</div>
+<div class="form-example">
+<button id="sub">Validate</button>
+<div id="renderList"></div>
+</div>
+
+
+</body>
+</html>

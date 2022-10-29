@@ -4,6 +4,10 @@ version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[workspace]
+default-members = ["runtime"]
+members = ["runtime","parser-nom","parser-pest","hello-wasm"]
 
-[dependencies]
-nom = "7"
+[[bin]]
+name = "runtime"
+path = "runtime/src/test.rs"
